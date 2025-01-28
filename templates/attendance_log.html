@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Log</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #9face6);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+        padding: 0 20px;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        max-width: 800px;
+        margin-top: 20px;
+        padding: 30px;
+        animation: fadeIn 1.5s ease;
+        transform: translateY(-50px);
+        animation-fill-mode: forwards;
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2.5rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 1rem;
+        text-align: center;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #ddd;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: center;
+        font-size: 1rem;
+      }
+
+      th {
+        background: linear-gradient(135deg, #6dd5ed, #2193b0);
+        color: #fff;
+      }
+
+      td {
+        background: #f9f9f9;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      ul li {
+        padding: 5px 0;
+        color: #3498db;
+        font-size: 0.9rem;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #7f8c8d;
+      }
+
+      footer a {
+        color: #3498db;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Attendance Log</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            <th>Attendance Count</th>
+            <th>Timestamps</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for record in records %}
+          <tr>
+            <td>{{ record.name }}</td>
+            <td>{{ record.attendance_count }}</td>
+            <td>
+              <ul>
+                {% for timestamp in record.timestamps %}
+                <li>{{ timestamp }}</li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <footer>&copy; 2025 Sanskar Koserwal | <a href="/">Home</a></footer>
+    </div>
+  </body>
+</html>

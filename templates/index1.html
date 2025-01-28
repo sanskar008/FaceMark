@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance App</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f7f6;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 600px;
+        padding: 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        color: #3498db;
+        margin-top: 20px;
+      }
+
+      form {
+        margin-bottom: 20px;
+        padding: 10px 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="file"],
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      button {
+        background: #3498db;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: #2980b9;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #7f8c8d;
+      }
+
+      footer a {
+        color: #3498db;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student Attendance System</h1>
+
+      <!-- Register a Student Section -->
+      <h2>Register a Student</h2>
+      <form action="/register" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter student name"
+          required
+        />
+        <label for="image">Upload Image:</label>
+        <input type="file" name="image" id="image" accept="image/*" required />
+        <button type="submit">Register</button>
+      </form>
+
+      <!-- Mark Attendance Section -->
+      <h2>Mark Attendance</h2>
+      <form action="/attendance" method="post" enctype="multipart/form-data">
+        <label for="attendance-image">Upload Image:</label>
+        <input
+          type="file"
+          name="image"
+          id="attendance-image"
+          accept="image/*"
+          required
+        />
+        <button type="submit">Mark Attendance</button>
+      </form>
+
+      <footer>&copy; 2025 Sanskar Koserwal | <a href="/">Home</a></footer>
+    </div>
+  </body>
+</html>

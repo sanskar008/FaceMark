@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Attendance App IIITV-ICD</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #9face6);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .container {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 700px;
+        padding: 30px;
+        animation: fadeIn 1.5s ease;
+        transform: translateY(-50px);
+        animation-fill-mode: forwards;
+      }
+
+      h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 2.5rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      h2 {
+        color: #3498db;
+        margin-top: 20px;
+        font-size: 1.8rem;
+      }
+
+      form {
+        margin-bottom: 20px;
+        padding: 15px 0;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #555;
+        font-size: 1rem;
+      }
+
+      input[type="text"],
+      input[type="file"],
+      button {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        font-family: "Poppins", sans-serif;
+      }
+
+      input[type="text"]:focus,
+      input[type="file"]:focus {
+        outline: none;
+        border-color: #3498db;
+        box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+      }
+
+      button {
+        background: linear-gradient(135deg, #6dd5ed, #2193b0);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      button:hover {
+        background: linear-gradient(135deg, #2193b0, #6dd5ed);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .redirect {
+        margin-top: 20px;
+      }
+
+      .redirect button {
+        background: linear-gradient(135deg, #42e695, #3bb2b8);
+        color: #fff;
+        border: none;
+        padding: 12px;
+        width: 100%;
+        font-size: 1rem;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .redirect button:hover {
+        background: linear-gradient(135deg, #3bb2b8, #42e695);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #7f8c8d;
+      }
+
+      footer a {
+        color: #3498db;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Student Attendance IIITV-ICD</h1>
+
+      <!-- Register a Student Section -->
+      <h2>Register a Student</h2>
+      <form action="/register" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter student name"
+          required
+        />
+        <label for="image">Upload Image:</label>
+        <input type="file" name="image" id="image" accept="image/*" required />
+        <button type="submit">Register</button>
+      </form>
+
+      <!-- Mark Attendance Section -->
+      <h2>Mark Attendance</h2>
+      <form action="/attendance" method="post" enctype="multipart/form-data">
+        <label for="attendance-image">Upload Image:</label>
+        <input
+          type="file"
+          name="image"
+          id="attendance-image"
+          accept="image/*"
+          required
+        />
+        <button type="submit">Mark Attendance</button>
+      </form>
+
+      <!-- View Attendance Log Section -->
+      <div class="redirect">
+        <h2>View Attendance Logs</h2>
+        <p>See the list of students with timestamps of attendance.</p>
+        <form action="/attendance-log" method="get">
+          <button type="submit">View Attendance Logs</button>
+        </form>
+      </div>
+
+      <footer>&copy; 2025 Sanskar Koserwal | <a href="/">Home</a></footer>
+    </div>
+  </body>
+</html>

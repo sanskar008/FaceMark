@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance App</title>
+  </head>
+  <body>
+    <h1>Student Attendance System</h1>
+
+    <!-- Register a Student Section -->
+    <h2>Register a Student</h2>
+    <form action="/register" method="post" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required />
+      <label for="image">Upload Image:</label>
+      <input type="file" name="image" accept="image/*" required />
+      <button type="submit">Register</button>
+    </form>
+
+    <!-- Mark Attendance Section -->
+    <h2>Mark Attendance</h2>
+    <form action="/attendance" method="post" enctype="multipart/form-data">
+      <label for="image">Upload Image:</label>
+      <input type="file" name="image" accept="image/*" required />
+      <button type="submit">Mark Attendance</button>
+    </form>
+  </body>
+</html>
