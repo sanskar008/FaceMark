@@ -21,59 +21,63 @@
         align-items: center;
         min-height: 100vh;
         overflow-x: hidden;
+        padding: 20px 0;
       }
 
       .container {
         background: #fff;
         border-radius: 20px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        width: 90%;
-        max-width: 700px;
-        padding: 30px;
+        width: 80%;
+        max-width: 600px;
+        padding: 25px;
         animation: fadeIn 1.5s ease;
-        transform: translateY(-50px);
+        transform: translateY(-30px);
         animation-fill-mode: forwards;
       }
 
       h1 {
         text-align: center;
         color: #2c3e50;
-        margin-bottom: 20px;
-        font-size: 2.5rem;
+        margin-bottom: 15px;
+        font-size: 2rem;
         font-weight: bold;
         letter-spacing: 1px;
       }
 
       h2 {
         color: #3498db;
-        margin-top: 20px;
-        font-size: 1.8rem;
+        margin-top: 15px;
+        font-size: 1.5rem;
+        font-weight: normal;
+        font-family: "Trebuchet MS", sans-serif;
       }
 
       form {
-        margin-bottom: 20px;
-        padding: 15px 0;
+        margin-bottom: 15px;
+        padding: 10px 0;
       }
 
       label {
         display: block;
         margin-bottom: 5px;
-        font-weight: bold;
+        font-weight: normal;
         color: #555;
         font-size: 1rem;
+        font-family: "Arial", sans-serif;
       }
 
       input[type="text"],
       input[type="file"],
       button {
         width: 100%;
-        padding: 12px 15px;
-        margin-bottom: 15px;
+        padding: 10px 12px;
+        margin-bottom: 12px;
         border: 1px solid #ddd;
-        border-radius: 10px;
+        border-radius: 8px;
         font-size: 1rem;
         transition: all 0.3s ease;
-        font-family: "Poppins", sans-serif;
+        font-family: "Arial", sans-serif;
       }
 
       input[type="text"]:focus,
@@ -83,45 +87,74 @@
         box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
       }
 
+      /* Custom Style for file input */
+      input[type="file"] {
+        padding: 10px 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f5f7fa;
+        cursor: pointer;
+        font-family: "Arial", sans-serif;
+      }
+
+      input[type="file"]::file-selector-button {
+        background: linear-gradient(135deg, #6dd5ed, #2193b0);
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: normal;
+        font-family: "Arial", sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      input[type="file"]::file-selector-button:hover {
+        background: linear-gradient(135deg, #2193b0, #6dd5ed);
+        transform: translateY(-2px);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+      }
+
       button {
         background: linear-gradient(135deg, #6dd5ed, #2193b0);
         color: #fff;
         border: none;
         cursor: pointer;
-        font-weight: bold;
+        font-weight: normal;
         letter-spacing: 1px;
+        font-family: "Trebuchet MS", serif;
       }
 
       button:hover {
         background: linear-gradient(135deg, #2193b0, #6dd5ed);
-        transform: translateY(-3px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
       }
 
       .redirect {
-        margin-top: 20px;
+        margin-top: 15px;
       }
 
       .redirect button {
         background: linear-gradient(135deg, #42e695, #3bb2b8);
         color: #fff;
         border: none;
-        padding: 12px;
+        padding: 10px;
         width: 100%;
         font-size: 1rem;
-        border-radius: 10px;
+        border-radius: 8px;
         transition: all 0.3s ease;
       }
 
       .redirect button:hover {
         background: linear-gradient(135deg, #3bb2b8, #42e695);
-        transform: translateY(-3px);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
       }
 
       footer {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 15px;
         font-size: 14px;
         color: #7f8c8d;
       }
@@ -138,7 +171,7 @@
       @keyframes fadeIn {
         0% {
           opacity: 0;
-          transform: translateY(-50px);
+          transform: translateY(-30px);
         }
         100% {
           opacity: 1;
@@ -146,14 +179,26 @@
         }
       }
     </style>
+    <script>
+      // Function to reload the page after form submission
+      function reloadPage() {
+        setTimeout(function () {
+          location.reload(); // Reload the page
+        }, 1000); // 1 second delay
+      }
+    </script>
   </head>
   <body>
     <div class="container">
       <h1>Student Attendance IIITV-ICD</h1>
 
       <!-- Register a Student Section -->
-      <h2>Register a Student</h2>
-      <form action="/register" method="post" enctype="multipart/form-data">
+      <form
+        action="/register"
+        method="post"
+        enctype="multipart/form-data"
+        onsubmit="reloadPage()"
+      >
         <label for="name">Name:</label>
         <input
           type="text"
@@ -169,7 +214,12 @@
 
       <!-- Mark Attendance Section -->
       <h2>Mark Attendance</h2>
-      <form action="/attendance" method="post" enctype="multipart/form-data">
+      <form
+        action="/attendance"
+        method="post"
+        enctype="multipart/form-data"
+        onsubmit="reloadPage()"
+      >
         <label for="attendance-image">Upload Image:</label>
         <input
           type="file"
@@ -184,8 +234,10 @@
       <!-- View Attendance Log Section -->
       <div class="redirect">
         <h2>View Attendance Logs</h2>
-        <p>See the list of students with timestamps of attendance.</p>
-        <form action="/attendance-log" method="get">
+        <p style="font-family: 'Times New Roman', serif">
+          See the list of students with timestamps of attendance.
+        </p>
+        <form action="/attendance-log" method="get" onsubmit="reloadPage()">
           <button type="submit">View Attendance Logs</button>
         </form>
       </div>
@@ -194,4 +246,3 @@
     </div>
   </body>
 </html>
-<!--This contains designed and coloured ui-->
