@@ -78,3 +78,6 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+#---------Commit---------
+#This version of our application contain only basic face capture(SINGLE face), and recognition, without storing it in db

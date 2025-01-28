@@ -138,3 +138,7 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+#---------Commit---------
+#This version of our application recognises multiple faces, stores there data in SQLite database, records the attandance logs, and has good ui

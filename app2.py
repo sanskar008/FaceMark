@@ -123,3 +123,7 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+#---------Commit---------
+#This version of our application recognises MULTIPLE faces, and stores data in SQLite database

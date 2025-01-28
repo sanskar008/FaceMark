@@ -100,3 +100,7 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+#---------Commit---------
+#This version of our application uses SQLite to store student data(name and embedding) in database, and recognition of SINGLE face
