@@ -46,6 +46,8 @@ def load_student_encodings():
     student_names = [student.name for student in students]
     return encodings, student_names
 
+
+
 # Endpoint: Register a new student
 @app.route('/register', methods=['POST'])
 def register_student():

@@ -1,0 +1,6 @@
+Flask
+Flask-SQLAlchemy
+face-recognition
+numpy
+datetime
+gunicorn
